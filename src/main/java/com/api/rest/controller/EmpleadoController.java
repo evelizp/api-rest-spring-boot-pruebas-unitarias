@@ -31,7 +31,7 @@ public class EmpleadoController {
                 .map(ResponseEntity::ok)
                 .orElseGet(()->ResponseEntity.notFound().build());
     }
-    @PutMapping("/id")
+    @PutMapping("/{id}")
     public ResponseEntity<Empleado> actualizarEmpleado(@PathVariable("id")long empleadoId,@RequestBody Empleado empleado){
         return empleadoService.getEmpleadoById(empleadoId)
                 .map(empleadoGuardado ->{
@@ -45,6 +45,7 @@ public class EmpleadoController {
                 .orElseGet(()-> ResponseEntity.notFound().build());
     }
 
+    @DeleteMapping("/{id}")
     public ResponseEntity<String> eliminarEmpleado(@PathVariable("id")long empleadoId){
         empleadoService.deleteEmpleado(empleadoId);
         return new ResponseEntity<String>("Empleado eliminado exitosamente", HttpStatus.OK);
