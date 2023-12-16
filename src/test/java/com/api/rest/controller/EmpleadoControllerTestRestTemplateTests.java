@@ -104,8 +104,6 @@ public class EmpleadoControllerTestRestTemplateTests {
         assertEquals(HttpStatus.NOT_FOUND,respuestaDetalle.getStatusCode());
         assertFalse(respuestaDetalle.hasBody());
 
-
-
     }
 
 }
